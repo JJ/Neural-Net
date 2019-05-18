@@ -3,8 +3,9 @@ use v6.d;
 
 use Test;
 
-plan 1;
+plan 2;
 
 use-ok 'Neural::Net::Function';
+use-ok 'Neural::Net::Neuron';
 
 done-testing;

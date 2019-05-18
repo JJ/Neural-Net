@@ -9,12 +9,12 @@ class Neuron is export {
 	
 	has Rat $.bias is rw = 1.0;
 	
-	has Rat @!weights is rw;
+	has Rat @!weights;
 	
 	has Rat @.inputs is rw;
 	
-	has Rat $!output is rw;
-	has Rat $!output-before-activation is rw;
+	has Rat $!output;
+	has Rat $!output-before-activation;
 	
 	submethod TWEAK () {
 		generate-weights;
