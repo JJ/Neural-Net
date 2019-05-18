@@ -17,13 +17,13 @@ class Neuron is export {
 	has Rat $!output-before-activation;
 	
 	submethod TWEAK () {
-		generate-weights;
+		self.generate-weights;
 	}
 	
 	multi method inputs (Rat @inputs, Bool :$force = False) {
 		@!inputs = @inputs;
 		
-		generate-weights if @!inputs.elems >= @!weights.elems || :$force;
+		self.generate-weights if @!inputs.elems >= @!weights.elems || :$force;
 	}
 	
 	multi method inputs (--> Array[Rat]) {
@@ -45,7 +45,7 @@ class Neuron is export {
 	}
 	
 	method calc () {
-		generate-weights if not @!weights;
+		self.generate-weights if not @!weights;
 		my Rat $oba = 0.0;
 		
 		# TODO: Optimize.
