@@ -2,7 +2,7 @@ use v6.d;
 
 use Neural::Net::Function;
 
-unit module Neural::Net::Neuron:ver<0.0.1>:auth<cpan:tmtvl>;
+unit module Neural::Net::Neuron:ver<1.0.0>:auth<cpan:tmtvl>;
 
 class Neuron is export {
 	has Function $.function is required;
@@ -58,4 +58,15 @@ class Neuron is export {
 		$!output-before-activation = $oba;
 		$!output = $!function.calc($oba);
 	}
+}
+
+sub input-neuron (Rat $input? --> Neuron) is export {
+	my Neuron $neuron .= new(function => Linear.new, bias => 0.0);
+	
+	if ($input) {
+		my Rat @in = ($input);
+		$neuron.inputs(@in);
+	}
+	
+	return $neuron;
 }
