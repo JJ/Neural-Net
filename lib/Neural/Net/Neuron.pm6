@@ -5,7 +5,7 @@ use Neural::Net::Function;
 unit module Neural::Net::Neuron:ver<1.0.0>:auth<cpan:tmtvl>;
 
 class Neuron is export {
-	has Function $.function is required;
+	has Function $.function is rw;
 	
 	has Rat $.bias is rw = 1.0;
 	
