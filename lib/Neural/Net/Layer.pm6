@@ -55,6 +55,14 @@ class InputLayer does Layer {
 	submethod TWEAK () {
 		self.init;
 	}
+	
+	method calc () {
+		for @!neurons.kv -> $index, $neuron {
+			$neuron.inputs((@!inputs[$index]));
+			$neuron.calc;
+			@!outputs[$index] = $neuron.output;
+		}
+	}
 }
 
 sub input-layer (Rat @inputs --> Layer) is export {
