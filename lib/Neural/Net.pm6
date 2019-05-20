@@ -1,5 +1,6 @@
 use v6.d;
 
+use Neural::Net::Function;
 use Neural::Net::Layer;
 
 unit module Neural::Net:ver<0.0.1>:auth<cpan:tmtvl>;
@@ -33,4 +34,25 @@ class NeuralNet is export {
 		
 		@!outputs = $!output-layer.outputs;
 	}
+}
+
+sub neural-net (Rat @inputs, Int $output-neurons, Int @hidden-neurons,
+		Function @hidden-functions, Function $output-function --> NeuralNet) is export {
+	my Layer @hidden-layers;
+	my Layer $output-layer;
+	
+	my Layer $input-layer = input-layer(@inputs);
+	
+	if (@hidden-functions.elems) {
+		@hidden-layers[0] = hidden-layer(@inputs, @hidden-functions[0], @hidden-neurons[0], $input-layer);
+		
+		for 1..^@hidden-functions.elems -> $index {
+			@hidden-layers[$index] = hidden-layer(@inputs, @hidden-functions[$index], @hidden-neurons[$index], @hidden-layers[$index - 1]);
+		}
+	}
+	else {
+		$output-layer = output-layer(@inputs, $output-function, $output-neurons, $input-layer);
+	}
+	
+	return NeuralNet.new(input-layer => $input-layer, output-layer => $output-layer);
 }
