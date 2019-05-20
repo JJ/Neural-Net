@@ -50,7 +50,7 @@ class Neuron is export {
 		
 		# TODO: Optimize.
 		for @!inputs.kv -> $index, $input {
-			$oba += $input * @!weights[$index];
+			$oba = ($oba + $input * @!weights[$index]).Rat;
 		}
 		
 		$oba += $!bias * @!weights[* - 1] if @!inputs;
