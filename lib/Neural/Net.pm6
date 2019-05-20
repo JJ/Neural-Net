@@ -49,6 +49,8 @@ sub neural-net (Rat @inputs, Int $output-neurons, Int @hidden-neurons,
 		for 1..^@hidden-functions.elems -> $index {
 			@hidden-layers[$index] = hidden-layer(@inputs, @hidden-functions[$index], @hidden-neurons[$index], @hidden-layers[$index - 1]);
 		}
+		
+		$output-layer = output-layer(@inputs, $output-function, $output-neurons, @hidden-layers[* - 1]);
 	}
 	else {
 		$output-layer = output-layer(@inputs, $output-function, $output-neurons, $input-layer);
