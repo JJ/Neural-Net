@@ -78,7 +78,7 @@ sub input-layer (Rat @inputs --> Layer) is export {
 
 class HiddenLayer does Layer {}
 
-sub hidden-layer (Rat @inputs, Function $function, Int $neuron-count, Layer $previous) is export {
+sub hidden-layer (Rat @inputs, Function $function, Int $neuron-count, Layer $previous --> Layer) is export {
 	my Neuron @neurons;
 	
 	@neurons.push(Neuron.new(function => $function, inputs => @inputs)) for ^$neuron-count;
@@ -93,7 +93,7 @@ class OutputLayer does Layer {
 	multi method next-layer (Layer $next) {}
 }
 
-sub output-layer (Rat @inputs, Function $function, Int $neuron-count, Layer $previous) is export {
+sub output-layer (Rat @inputs, Function $function, Int $neuron-count, Layer $previous --> Layer) is export {
 	my Neuron @neurons;
 	
 	@neurons.push(Neuron.new(function => $function, inputs => @inputs)) for ^$neuron-count;
