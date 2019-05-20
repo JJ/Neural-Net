@@ -54,5 +54,5 @@ sub neural-net (Rat @inputs, Int $output-neurons, Int @hidden-neurons,
 		$output-layer = output-layer(@inputs, $output-function, $output-neurons, $input-layer);
 	}
 	
-	return NeuralNet.new(input-layer => $input-layer, output-layer => $output-layer);
+	return NeuralNet.new(input-layer => $input-layer, output-layer => $output-layer, inputs => @inputs, hidden-layers => @hidden-layers);
 }

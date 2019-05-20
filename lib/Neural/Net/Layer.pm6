@@ -64,7 +64,8 @@ class InputLayer does Layer {
 	
 	method calc () {
 		for @!neurons.kv -> $index, $neuron {
-			$neuron.inputs((@!inputs[$index]));
+			my Rat @in = (@!inputs[$index]);
+			$neuron.inputs(@in);
 			$neuron.calc;
 			@!outputs[$index] = $neuron.output;
 		}
