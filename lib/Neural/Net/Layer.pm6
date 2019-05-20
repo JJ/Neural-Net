@@ -3,7 +3,7 @@ use v6.d;
 use Neural::Net::Function;
 use Neural::Net::Neuron;
 
-unit module Neural::Net::Layer:ver<0.0.1>:auth<cpan:tmtvl>;
+unit module Neural::Net::Layer:ver<1.0.0>:auth<cpan:tmtvl>;
 
 role Layer is export {
 	has Neuron @.neurons;
