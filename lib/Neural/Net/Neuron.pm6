@@ -82,12 +82,9 @@ Neural::Net::Neuron
 	=begin code
 	use Neural::Net::Neuron;
 	
-	my Rat @inputs = (1.0, 1.5);
 	my Neuron $input-neuron = input-neuron(@inputs);
 	
-	use Neural::Net::Function;
-	
-	my Neuron $neuron .= new(function => Sigmoid.new, inputs => @inputs);
+	my Neuron $neuron .= new(function => $function, inputs => @inputs);
 	=end code
 
 =head1 DESCRIPTION
@@ -102,7 +99,7 @@ the selected mathematical function.
 One can either initialise a neuron manually (note: function is required):
 
 	=begin code
-	my Neuron @neuron .= new(function => $function);
+	my Neuron $neuron .= new(function => $function);
 	=end code
 
 Or use the input-neuron function to create a neuron with a bias of 0 and a 
@@ -114,7 +111,8 @@ standard Linear function:
 
 =head1 SUPPORT
 
-Please report bugs or file feature requests via github: L<https://github.com/tmtvl/Neural-Net/issues>
+Please report bugs or file feature requests via github:
+L<https://github.com/tmtvl/Neural-Net/issues>
 
 =head1 AUTHOR
 
@@ -122,6 +120,7 @@ Tim Van den Langenbergh L<tmt_vdl@gmx.com>
 
 =head1 LICENSE
 
-This library is free software; you can redistribute it and/or modify it under the same terms as Perl itself.
+This library is free software; you can redistribute it and/or modify it under
+the same terms as Perl6 itself.
 
 =end pod
