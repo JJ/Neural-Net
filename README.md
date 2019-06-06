@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/tmtvl/Zodiac-Chinese.svg?branch=master)](https://travis-ci.org/tmtvl/Zodiac-Chinese)
+[![Build Status](https://travis-ci.org/tmtvl/Neural-Net.svg?branch=master)](https://travis-ci.org/tmtvl/Neural-Net)
+
 # Neural::Net
 
 Neural Network in Perl 6.
