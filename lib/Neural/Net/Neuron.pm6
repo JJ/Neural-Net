@@ -2,7 +2,7 @@ use v6.d;
 
 use Neural::Net::Function;
 
-unit module Neural::Net::Neuron:ver<1.0.0>:auth<cpan:tmtvl>;
+unit module Neural::Net::Neuron:ver<1.0.1>:auth<cpan:tmtvl>;
 
 class Neuron is export {
 	has Function $.function is rw is required;
@@ -70,3 +70,57 @@ sub input-neuron (Rat $input? --> Neuron) is export {
 	
 	return $neuron;
 }
+
+=begin pod
+
+=head1 NAME
+
+Neural::Net::Neuron
+
+=head1 SYNOPSIS
+
+	=begin code
+	use Neural::Net::Neuron;
+	
+	my Neuron $input-neuron = input-neuron(@inputs);
+	
+	my Neuron $neuron .= new(function => $function, inputs => @inputs);
+	=end code
+
+=head1 DESCRIPTION
+
+Neural::Net::Neuron is the basic building block of a neural network.
+Neural networks are compromised of a number of layers which each contain one or 
+more neurons which trigger the adjustments of the inputs based on the bias and 
+the selected mathematical function.
+
+=head1 OPTIONS
+
+One can either initialise a neuron manually (note: function is required):
+
+	=begin code
+	my Neuron $neuron .= new(function => $function);
+	=end code
+
+Or use the input-neuron function to create a neuron with a bias of 0 and a 
+standard Linear function:
+
+	=begin code
+	my Neuron $input-neuron = input-neuron;
+	=end code
+
+=head1 SUPPORT
+
+Please report bugs or file feature requests via github:
+L<https://github.com/tmtvl/Neural-Net/issues>
+
+=head1 AUTHOR
+
+Tim Van den Langenbergh L<tmt_vdl@gmx.com>
+
+=head1 LICENSE
+
+This library is free software; you can redistribute it and/or modify it under
+the same terms as Perl6 itself.
+
+=end pod
