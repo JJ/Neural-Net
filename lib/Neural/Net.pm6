@@ -3,7 +3,7 @@ use v6.d;
 use Neural::Net::Function;
 use Neural::Net::Layer;
 
-unit module Neural::Net:ver<0.0.1>:auth<cpan:tmtvl>;
+unit module Neural::Net:ver<1.0.1>:auth<cpan:tmtvl>;
 
 class NeuralNet is export {
 	has Layer $.input-layer;
