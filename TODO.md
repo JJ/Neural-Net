@@ -8,3 +8,4 @@ Some ideas for working on this module:
 * Set up travis test
 * Write more better tests
 * Maybe think about multithreading?
+* Use named parameters in the factory methods
