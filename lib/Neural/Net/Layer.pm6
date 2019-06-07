@@ -38,17 +38,17 @@ role Layer is export {
 		@!inputs = @inputs;
 	}
 	
-	multi method inputs (--> Array[Rat]) {
-		return @!inputs;
-	}
+	# multi method inputs (--> Array[Rat]) {
+	# 	return @!inputs;
+	# }
 	
 	method outputs (--> Array[Rat]) {
 		return @!outputs;
 	}
 	
-	method init () {
-		.function = $!function for @!neurons;
-	}
+	# method init () {
+	# 	.function = $!function for @!neurons;
+	# }
 	
 	method calc () {
 		for @!neurons.kv -> $index, $neuron {
